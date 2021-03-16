@@ -1,4 +1,6 @@
 from random import randint, choice
+from lessn_animals import Animal
+from abc import ABC, abstractmethod
 
 class MyTime:
     def __init__(self, hours, minutes, seconds):
@@ -56,12 +58,92 @@ class Car:
         char = chars[randint(0, len(chars) - 1)]
         return f'{char}-{randint(1, 100)}'
 
+class Horse(Animal):
+    def voice(self):
+        super(Horse, self).voice('*horse voice*')
+
+
+class Donkey(Animal):
+    def voice(self):
+        super(Donkey, self).voice('*donkey voice*')
+
+
+class Mul(Donkey, Animal):
+    pass
+
+
+class MyException(Exception):
+    def __init__(self, message='AAA!'):
+        super().__init__(message)
+
+
+id = 0
+
+
+class BookValidationError(Exception):
+    def __init__(self, id, message):
+        super().__init__(f'Invalid book {id}: {message}')
+
+
+class PageCountError(BookValidationError):
+    def __init__(self, id):
+        super().__init__(id, 'page count invalid')
+
+
+class AgeError(BookValidationError):
+    def __init__(self, id):
+        super().__init__(id, 'age invalid')
+
+
+class Book:
+    def __init__(self, page_count, age, author, price):
+        global id
+        self.id = id
+
+        if page_count > 500:
+            raise PageCountError(id)
+        self.page_count = page_count
+
+        if age < 2000 or age > 2020:
+            raise AgeError(id)
+        self.age = age
+
+        self.author = author
+        self.price = price
+        id += 1
+
+
+class A(ABC):
+    @abstractmethod
+    def do_smth(self):
+        print('I am a parent')
+
+
+class B(A):
+    def do_smth(self):
+        print('I am a child')
+
+    def test(self):
+        pass
+
+
+class MyInterface(ABC):
+    @abstractmethod
+    def do_a(self, arg1):
+        raise NotImplemented
+
+    @abstractmethod
+    def do_b(self, arg1, arg2):
+        raise NotImplemented
+
+
+class MyClass(MyInterface):
+    def do_a(self, arg1):
+        print(arg1)
+
+    # def do_b(self, arg1, arg2):
+    #     pass
+
 
 if __name__ == '__main__':
-    car1 = Car(Car.get_random_model())
-    Car('b')
-    Car('t')
-
-    print(Car.get_counter())
-    print(Car.is_ok(car1))
-    print(Car.get_random_model())
+    pass
