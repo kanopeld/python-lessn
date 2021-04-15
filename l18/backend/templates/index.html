@@ -40,6 +40,14 @@
         {% else %}
             <h3>Hello</h3>
         {% endif %}
+
+        <div>
+            <ul>
+                {% for user in users %}
+                    <li>{{ user.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 </div>
 </body>
