@@ -12,7 +12,7 @@
 <body>
 <div class="container">
     <div class="row">
-        <form method="POST" action="http://127.0.0.1:8000/form">
+        <form method="POST" action="http://127.0.0.1:8000/user/create">
             <div class="form-group">
                 <label for="firstname-field">Firstname:</label>
                 <input id="firstname-field" class="form-control" type="text" name="firstname" placeholder="enter you firstname">
@@ -28,26 +28,26 @@
                 <input id="age" class="form-control" type="number" name="age" placeholder="enter you age">
             </div>
 
-            <div class="form-group">
-                <label for="comment-field">Comment:</label>
-                <textarea id="comment-field" class="form-control" name="comment" placeholder="enter you comment" cols="20" rows="4"></textarea>
+            <div class="test form-group">
+                <label for="email">Email:</label>
+                <input id="email" class="form-control" type="email" name="email" placeholder="enter you email">
             </div>
 
             <button type="submit" class="btn btn-info">Send</button>
-        </form>k
-        {% if age < 18 %}
-            <h3>Access denied</h3>
-        {% else %}
-            <h3>Hello</h3>
-        {% endif %}
+        </form>
+<!--        {% if age < 18 %}-->
+<!--            <h3>Access denied</h3>-->
+<!--        {% else %}-->
+<!--            <h3>Hello</h3>-->
+<!--        {% endif %}-->
 
-        <div>
-            <ul>
-                {% for user in users %}
-                    <li>{{ user.name }}</li>
-                {% endfor %}
-            </ul>
-        </div>
+<!--        <div>-->
+<!--            <ul>-->
+<!--                {% for user in users %}-->
+<!--                    <li>{{ user.name }}</li>-->
+<!--                {% endfor %}-->
+<!--            </ul>-->
+<!--        </div>-->
     </div>
 </div>
 </body>

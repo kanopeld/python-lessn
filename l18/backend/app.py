@@ -24,13 +24,16 @@ class User(db.Model):
         self.firstname = form['firstname']
         self.lastname = form['lastname']
         self.age = form['age']
+        self.email = form['email']
 
 
-@app.route('/form', methods=['POST'])
+@app.route('/user/create', methods=['POST'])
 def form():
     user = User(request.form)
-    print(user)
-    return 'Success'
+    db.session.add(user)
+    db.session.commit()
+
+    return 'success!'
 
 
 if __name__ == '__main__':
