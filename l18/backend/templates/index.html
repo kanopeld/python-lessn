@@ -3,27 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Lecture 18</title>
-    <link rel="stylesheet" href="index.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="static/index.css">
 </head>
 <body>
+<div class="container">
+    <div class="row">
+        <form method="POST" action="http://127.0.0.1:8000/form">
+            <div class="form-group">
+                <label for="firstname-field">Firstname:</label>
+                <input id="firstname-field" class="form-control" type="text" name="firstname" placeholder="enter you firstname">
+            </div>
 
-<form method="POST" action="http://127.0.0.1:8000/form">
-    <label for="firstname-field">Firstname:</label>
-    <input id="firstname-field" type="text" name="firstname" placeholder="enter you firstname">
-    <br>
+            <div class="form-group">
+                <label for="lastname-field">Lastname:</label>
+                <input id="lastname-field" class="form-control" type="text" name="lastname" placeholder="enter you lastname">
+            </div>
 
-    <label for="lastname-field">Lastname:</label>
-    <input id="lastname-field" type="text" name="lastname" placeholder="enter you lastname">
-    <br>
+            <div class="test form-group">
+                <label for="age">Age:</label>
+                <input id="age" class="form-control" type="number" name="age" placeholder="enter you age">
+            </div>
 
-    <label for="age">Age:</label>
-    <input id="age" type="number" name="age" placeholder="enter you age">
-    <br>
+            <div class="form-group">
+                <label for="comment-field">Comment:</label>
+                <textarea id="comment-field" class="form-control" name="comment" placeholder="enter you comment" cols="20" rows="4"></textarea>
+            </div>
 
-    <label for="comment-field">Comment:</label>
-    <textarea id="comment-field" name="comment" placeholder="enter you comment" cols="20" rows="4"></textarea>
-
-    <button type="submit">Send</button>
-</form>
+            <button type="submit" class="btn btn-info">Send</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>
