@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Lecture 18</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-<form action="">
+
+<form method="POST" action="http://127.0.0.1:8000/form">
     <label for="firstname-field">Firstname:</label>
     <input id="firstname-field" type="text" name="firstname" placeholder="enter you firstname">
     <br>
@@ -15,11 +17,13 @@
     <br>
 
     <label for="age">Age:</label>
-    <input id="age" type="text" name="age" placeholder="enter you age">
+    <input id="age" type="number" name="age" placeholder="enter you age">
     <br>
 
     <label for="comment-field">Comment:</label>
-    <textarea id="comment-field" name="comment" placeholder="enter you comment" cols="10" rows="4"></textarea>
+    <textarea id="comment-field" name="comment" placeholder="enter you comment" cols="20" rows="4"></textarea>
+
+    <button type="submit">Send</button>
 </form>
 </body>
 </html>
