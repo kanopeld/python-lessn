@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -29,11 +29,21 @@ class User(db.Model):
 
 @app.route('/user/create', methods=['POST'])
 def form():
-    user = User(request.form)
-    db.session.add(user)
-    db.session.commit()
+    try:
+        user = User(request.form)
+        db.session.add(user)
+        db.session.commit()
 
-    return 'success!'
+        return redirect('/users')
+    except Exception as e:
+        return render_template('error.html', msg=e)
+
+
+@app.route('/users')
+def users():
+    users = User.query.all()
+
+    return render_template('list.html', users=users)
 
 
 if __name__ == '__main__':
